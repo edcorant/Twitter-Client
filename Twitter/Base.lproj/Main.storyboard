@@ -65,13 +65,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tSZ-Sc-iF1">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tweet_Cell" rowHeight="120" id="tSZ-Sc-iF1" customClass="Tweet_Cell_View" customModule="Twitter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tSZ-Sc-iF1" id="3U4-88-XbO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tj-db-jHO">
+                                            <rect key="frame" x="20" y="11" width="65" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65" id="SLi-js-bzN"/>
+                                                <constraint firstAttribute="width" constant="65" id="tU8-wM-34h"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-Sb-jQL">
+                                            <rect key="frame" x="93" y="11" width="70.5" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="vaP-tU-D9d"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-TQ-QgO">
+                                            <rect key="frame" x="93" y="34" width="301" height="75"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@handle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C6-zP-wky">
+                                            <rect key="frame" x="167.5" y="11" width="64" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Um8-Sb-jQL" firstAttribute="top" secondItem="3U4-88-XbO" secondAttribute="topMargin" id="Bh5-IH-cnO"/>
+                                        <constraint firstItem="ku2-TQ-QgO" firstAttribute="trailing" secondItem="3U4-88-XbO" secondAttribute="trailingMargin" id="FNT-03-3eb"/>
+                                        <constraint firstItem="ku2-TQ-QgO" firstAttribute="leading" secondItem="5tj-db-jHO" secondAttribute="trailing" constant="8" id="Iul-Q0-ASX"/>
+                                        <constraint firstItem="5tj-db-jHO" firstAttribute="top" secondItem="3U4-88-XbO" secondAttribute="topMargin" id="Lhf-kM-9KA"/>
+                                        <constraint firstItem="0C6-zP-wky" firstAttribute="leading" secondItem="Um8-Sb-jQL" secondAttribute="trailing" constant="4" id="NWI-5o-vha"/>
+                                        <constraint firstItem="ku2-TQ-QgO" firstAttribute="top" secondItem="Um8-Sb-jQL" secondAttribute="bottom" constant="2" id="RwP-hC-YQc"/>
+                                        <constraint firstItem="Um8-Sb-jQL" firstAttribute="leading" secondItem="5tj-db-jHO" secondAttribute="trailing" constant="8" symbolic="YES" id="ZW8-MH-DfR"/>
+                                        <constraint firstItem="5tj-db-jHO" firstAttribute="leading" secondItem="3U4-88-XbO" secondAttribute="leadingMargin" id="iKI-Bx-UMt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ku2-TQ-QgO" secondAttribute="bottom" id="nGd-OK-hIB"/>
+                                        <constraint firstItem="0C6-zP-wky" firstAttribute="top" secondItem="3U4-88-XbO" secondAttribute="topMargin" id="qRb-IL-9fO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profile_name_label" destination="Um8-Sb-jQL" id="Luk-Gi-9Jx"/>
+                                    <outlet property="profile_photo" destination="5tj-db-jHO" id="Y6N-Rw-hfl"/>
+                                    <outlet property="tweet_content" destination="ku2-TQ-QgO" id="G5j-xJ-0BW"/>
+                                    <outlet property="user_handle" destination="0C6-zP-wky" id="bdL-Y2-Ur1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -90,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHI-CT-vbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306" y="80"/>
+            <point key="canvasLocation" x="1305.7971014492755" y="79.6875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C5x-gp-EUt">
