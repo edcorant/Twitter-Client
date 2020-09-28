@@ -18,7 +18,6 @@ class Home_Table_View_Controller: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        load_tweets()
         
         refresher.addTarget(self, action: #selector(load_tweets), for: .valueChanged)
         
@@ -85,7 +84,7 @@ class Home_Table_View_Controller: UITableViewController {
     
     func get_sum_moar_tweets () {
         
-        num_tweets += 20
+        num_tweets += 40
         let feed_url = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let params = ["count" : num_tweets]
         
@@ -141,6 +140,9 @@ class Home_Table_View_Controller: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.barStyle = .black
+        super.viewDidLoad()
+        super.viewDidAppear(animated)
+        self.load_tweets()
     }
 
 }
