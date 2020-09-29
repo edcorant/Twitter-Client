@@ -21,7 +21,7 @@ class Home_Table_View_Controller: UITableViewController {
         
         refresher.addTarget(self, action: #selector(load_tweets), for: .valueChanged)
         
-        tableView.refreshControl = refresher
+        tableView.refreshControl = refresher        
     }
     
     @objc func load_tweets() {
@@ -77,6 +77,10 @@ class Home_Table_View_Controller: UITableViewController {
         if let image = try? Data(contentsOf: photo_url!) {
             cell.profile_photo.image = UIImage(data: image)
         }
+
+        cell.id = twitter_feed[indexPath.row]["id"] as! Int
+        cell.set_favorite(twitter_feed[indexPath.row]["favorited"] as! Bool)
+        cell.set_retweet(twitter_feed[indexPath.row]["retweeted"] as! Bool)
         
         // return the cell object
         return cell
