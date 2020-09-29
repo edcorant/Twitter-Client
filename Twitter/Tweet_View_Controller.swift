@@ -11,7 +11,6 @@ import UIKit
 class Tweet_View_Controller: UIViewController {
 
     @IBOutlet weak var tweet_body: UITextView!
-    @IBOutlet weak var profile_photo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
